@@ -40,7 +40,7 @@ class Contact(models.Model):
     added = models.DateField(default=datetime.date.today)
     
     # the user(s) this contact correspond to
-    users = models.ManyToManyField(User)
+    users = models.ManyToManyField(User, related_name='friend_contact_set')
     
     def __unicode__(self):
         return "%s (%s's contact)" % (self.email, self.user)
