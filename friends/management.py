@@ -14,6 +14,6 @@ if "notification" in settings.INSTALLED_APPS:
         NoticeType.create("friends_otherconnect", _("Other Connection"), _("one of your friends has a new connection"), default=2)
         NoticeType.create("join_accept", _("Join Invitation Accepted"), _("an invitation you sent to join this site has been accepted"), default=2)
 
-    signals.post_syncdb.connect(create_notice_types, sender=notification)
+    signals.post_syncdb.connect(create_notice_types, sender=NoticeType)
 else:
     print "Skipping creation of NoticeTypes as notification app not found"
